@@ -1,0 +1,378 @@
+{
+  "name": "AI Placement Preparation Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg",
+          "mode": "list",
+          "cachedResultName": "PlacementAgent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -160,
+        -32
+      ],
+      "id": "af031062-24ec-4745-b316-73c952bb531e",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NHLe0zPP25SxdElE",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg",
+          "mode": "list",
+          "cachedResultName": "PlacementAgent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1ThDOi8BHeBkSU4H4z9i1PUtJQ6o8omed9iXdDDawDgg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{$json.Email}}",
+            "Name": "={{$json.Name}}   ",
+            "Date": "={{$now}}",
+            "Aptitude": "={{JSON.parse($node[\"Gemini content generator\"].json[\"candidates\"][0][\"content\"][\"parts\"][0][\"text\"]).aptitude}}",
+            "Coding": "={{JSON.parse($node[\"Gemini content generator\"].json[\"candidates\"][0][\"content\"][\"parts\"][0][\"text\"]).coding}}",
+            "Interview Tip": "={{JSON.parse($node[\"Gemini content generator\"].json[\"candidates\"][0][\"content\"][\"parts\"][0][\"text\"]).interviewTip}}",
+            "Motivational Quote": "={{JSON.parse($node[\"Gemini content generator\"].json[\"candidates\"][0][\"content\"][\"parts\"][0][\"text\"]).motivationalQuote}}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Aptitude",
+              "displayName": "Aptitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Coding",
+              "displayName": "Coding",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Interview Tip",
+              "displayName": "Interview Tip",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Motivational Quote",
+              "displayName": "Motivational Quote",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "candidates",
+              "displayName": "candidates",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "usageMetadata",
+              "displayName": "usageMetadata",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "modelVersion",
+              "displayName": "modelVersion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "responseId",
+              "displayName": "responseId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        352,
+        0
+      ],
+      "id": "da528906-55ce-4c7f-8a6d-40cc096d30de",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NHLe0zPP25SxdElE",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$json.Email}}",
+        "subject": "Today's Placement Preparation",
+        "message": "=<h2>Hello {{$json.Name}},</h2>\n\n<h3>📚 Today's Placement Preparation</h3>\n\n<hr>\n\n<h4>📘 Aptitude</h4>\n<p>{{$json.Aptitude}}</p>\n\n<hr>\n\n<h4>💻 Coding Question</h4>\n<p>{{$json.Coding}}</p>\n\n<hr>\n\n<h4>🎯 Interview Tip</h4>\n<p>{{$json[\"Interview Tip\"]}}</p>\n\n<hr>\n\n<h4>🌟 Motivational Quote</h4>\n<p>{{$json[\"Motivational Quote\"]}}</p>\n\n<hr>\n\n<p><b>Best Wishes,</b><br>\nAI Placement Agent</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        544,
+        0
+      ],
+      "id": "d120040e-4987-49c5-84c7-07effd2ddc5a",
+      "name": "Send a message",
+      "webhookId": "547d0091-d2d0-4bf2-bdd4-bd0740d76a41",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Le9mh18e1vOScINN",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "YOUR_GEMINI_API_KEY_HERE"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"You are an AI Placement Preparation Agent. Generate today's placement preparation content for a college student.\\n\\nReturn ONLY valid JSON. Do not use markdown, code fences, or any text outside the JSON.\\n\\nUse exactly this structure:\\n{\\n  \\\"aptitude\\\": \\\"Question: ...\\\\nAnswer: ...\\\",\\n  \\\"coding\\\": \\\"Question: ...\\\\nAnswer: ...\\\",\\n  \\\"interviewTip\\\": \\\"...\\\",\\n  \\\"motivationalQuote\\\": \\\"...\\\"\\n}\\n\\nRequirements:\\n1. aptitude: Generate one easy campus-placement aptitude question and its answer.\\n2. coding: Generate one easy coding question suitable for a beginner, preferably Python or C++, and give the answer/explanation.\\n3. interviewTip: Give one practical interview preparation tip in 1-2 sentences.\\n4. motivationalQuote: Give one short motivational quote for a student preparing for placements.\\n5. Keep all content concise and useful.\\n6. Return valid JSON only.\"\n        }\n      ]\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -400,
+        0
+      ],
+      "id": "82616d04-9e6e-40b1-b9d3-e26c7a3a6c34",
+      "name": "Gemini content generator"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        16,
+        0
+      ],
+      "id": "283f3ecd-6bf1-463b-a8eb-1ed2c8286f09",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -656,
+        0
+      ],
+      "id": "ea296392-138d-431a-a31e-aa9027f61800",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini content generator": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gemini content generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "53031f68-3122-4ddc-a73d-49dd77d6df68",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "69b131b68a08d638951e29b1d4cb0be1ee8fad9ddbc0284c1de945865f90c58e"
+  },
+  "nodeGroups": [],
+  "id": "pwAKKf1NhXu6uo2s",
+  "tags": []
+}
