@@ -1,1 +1,34 @@
+AI Placement Preparation Agent - Resume Analysis Prompt
+
+Analyze the student's resume for placement readiness.
+
+Evaluate the resume based on:
+
+1. Technical skills
+2. Programming languages
+3. Frameworks and libraries
+4. Projects
+5. AI/ML knowledge
+6. DSA and competitive programming
+7. GitHub and portfolio presence
+8. Deployment experience
+9. Cloud and DevOps knowledge
+10. Overall placement readiness
+
+Return ONLY valid JSON using the following structure:
+
+{
+  "atsScore": 0,
+  "strengths": [],
+  "weaknesses": [],
+  "missingSkills": [],
+  "suggestions": [],
+  "overallFeedback": ""
+}
+
+The atsScore should be between 0 and 100.
+
+Give practical and student-friendly suggestions that can improve placement readiness.
+
+Do not include markdown outside the JSON response.
 
